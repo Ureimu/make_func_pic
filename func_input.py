@@ -51,16 +51,9 @@ def getfunctions():
         return list0
 
 
-def makefunlist(xfunlist, yfunlist, lenfunlist, configdict):
+def makefunlist(xfunlist, yfunlist, configdict):
     gifname, fps, duration = configdict['gifname'], configdict['fps'], configdict['duration']
     # 准备funlist
-    for m0 in range(int(fps * duration)):
-        for i in range(lenfunlist):
-            xfunlist.append(xfunlist[i])
-        if m0 % 100 == 0:
-            print(m0, end=' ')
-    for m0 in range(int(fps * duration)):
-        for i in range(lenfunlist):
-            yfunlist.append(yfunlist[i])
-        if m0 % 100 == 0:
-            print(m0, end=' ')
+    xfunlist = xfunlist * int(fps * duration+1)
+    yfunlist = yfunlist * int(fps * duration+1)
+    return xfunlist, yfunlist

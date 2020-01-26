@@ -1,6 +1,7 @@
 from moviepy.video.io.bindings import mplfig_to_npimage
 import matplotlib.pyplot as plt
 import moviepy.editor as mpy
+import numpy as np
 # 引进一些常用np数学函数以简化输入,勿删
 from numpy import sin
 from numpy import cos
@@ -12,7 +13,8 @@ from numpy import arctan
 from numpy import around  # 取整函数
 from numpy import floor  # 向下取整
 from numpy import ceil  # 向上取整
-
+from numpy import exp  # 以e为底的指数函数
+from numpy import log  # 自然对数函数
 
 def make_gif(fig, ax1, list0, configdict):
     xfunlist, yfunlist, lenfunlist, paralistall = list0[0], list0[1], list0[2], list0[3]
@@ -80,4 +82,17 @@ def make_gif(fig, ax1, list0, configdict):
             print()
             return mplfig_to_npimage(fig)  # 图形的RGB图像
     animation = mpy.VideoClip(make_frame_mpl, duration=duration)
-    animation.write_gif(gifname, fps=fps)
+    animation.write_gif(gifname, fps=fps)  # 将一系列图片制作成gif
+
+#定义一些numpy没有的初等函数方便输入
+def lnxy(x,y):
+    return np.log(y)/np.log(x)
+
+def sec(x):
+    return np.reciprocal(cos(x))
+
+def csc(x):
+    return np.reciprocal(sin(x))
+
+def cot(x):
+    return np.reciprocal(tan(x))
