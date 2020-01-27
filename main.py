@@ -3,7 +3,7 @@ from gifconfig import *
 from func_input import *
 from gifmaker import *
 from movefile import *
-from history import *
+from historylog import *
 import time
 
 mplstyle.use('fast')
