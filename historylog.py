@@ -6,7 +6,7 @@ def update_log_fun(dict, func):
     file = open('historylog.txt', 'a+')
     file.write(str(dict)+'\n')
     file.write(str(func)+'\n')
-    file.close
+    file.close()
     print('finish')
 
 
@@ -15,7 +15,7 @@ def update_log_time(t0, t1):
     file.write('The progess begins at '+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t0)))
     file.write(',ends at '+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(t1))+'.\n')
     file.write('It takes %s s to finish' % (t1-t0)+'.\n\n')
-    file.close
+    file.close()
 
 
 def get_time():
