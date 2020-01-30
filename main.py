@@ -18,7 +18,7 @@ if __name__ == '__main__':
     try:
         print('getting preconfig...')
         storage_path = read_preconfig()  # 设置存储路径
-    except FileNotFoundError:
+    except FileNotFoundError or io.UnsupportedOperation:
         print('no preconfig being detected')
         storage_path = write_preconfig_default()
     try:

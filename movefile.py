@@ -3,7 +3,8 @@
 # test_copyfile.py
 # https://www.cnblogs.com/iois/p/7258686.html代码原地址
 
-import os, shutil
+import os
+import shutil
 
 
 def mymovefile(srcfile, dstfile):
