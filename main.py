@@ -4,16 +4,23 @@ from func_input import *
 from gifmaker import *
 from movefile import *
 from historylog import *
+from preconfig import *
 import time
 
 mplstyle.use('fast')
 
 '''
-在这里注明一下用到的模块:
+在这里注明一下用到的第三方模块:
 numpy,moviepy,matplotlib,...
 '''
 
 if __name__ == '__main__':
+    try:
+        print('getting preconfig...')
+        storage_path = read_preconfig()  # 设置存储路径
+    except ValueError:
+        print('no preconfig being detected')
+        storage_path = write_preconfig_default()
     try:
         configdict = gif_config()  # 对gif进行设置
         fig, ax1 = draw_fig(configdict['xl'], configdict['xm'], configdict['yl'],
@@ -31,7 +38,7 @@ if __name__ == '__main__':
         t0, tl0 = get_time()  # 开始计时
         funclist[0], funclist[1] = makefunlist(funclist[0], funclist[1], configdict)  # 制作每一帧对应的函数表
         make_gif(fig, ax1, funclist, configdict)  # 编译函数表并制作gif
-        mymovefile(configdict['gifname'], 'pic/' + configdict['gifname'])  # 把文件移动到根目录下的\pic\中
+        mymovefile(configdict['gifname'], storage_path + configdict['gifname'])  # 把文件移动到根目录下的\pic\中
         t1, tl1 = get_time()  # 计时结束
         print('%ss' % (t1 - t0))  # 输出制作花费时间
         update_log_time(tl0, tl1)  # 更新日志
