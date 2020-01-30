@@ -18,7 +18,7 @@ if __name__ == '__main__':
     try:
         print('getting preconfig...')
         storage_path = read_preconfig()  # 设置存储路径
-    except ValueError:
+    except FileNotFoundError:
         print('no preconfig being detected')
         storage_path = write_preconfig_default()
     try:
@@ -42,8 +42,10 @@ if __name__ == '__main__':
         t1, tl1 = get_time()  # 计时结束
         print('%ss' % (t1 - t0))  # 输出制作花费时间
         update_log_time(tl0, tl1)  # 更新日志
+    except FileNotFoundError:
+        print('There is no such path to store picture.')
     except:
-        print('An error has occured, you can get it in historylog.txt.')
+        print('An unexcepted error has occured, you can get it in historylog.txt.')
         update_log_error()  # 在日志中记录错误
         time.sleep(10)
     else:
