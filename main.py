@@ -1,3 +1,4 @@
+import io
 import matplotlib.style as mplstyle
 from gifconfig import *
 from func_input import *
@@ -21,16 +22,11 @@ if __name__ == '__main__':
     except FileNotFoundError or io.UnsupportedOperation:
         print('no preconfig being detected')
         storage_path = write_preconfig_default()
-    try:
-        configdict = gif_config()  # 对gif进行设置
-        fig, ax1 = draw_fig(configdict['xl'], configdict['xm'], configdict['yl'],
-                            configdict['ym'], configdict['sizex'], configdict['sizey'])  # 生成图片基本格式
-        funclist = getfunctions()  # 接受用户输入的函数
-        recvfunlist = funclist[0] + funclist[1]
-    except:
-        print('An error has occured, you can get it in historylog.txt.')
-        update_log_error()  # 在日志中记录错误
-        time.sleep(10)
+    configdict = gif_config()  # 对gif进行设置
+    fig, ax1 = draw_fig(configdict['xl'], configdict['xm'], configdict['yl'],
+                        configdict['ym'], configdict['sizex'], configdict['sizey'])  # 生成图片基本格式
+    funclist = getfunctions()  # 接受用户输入的函数
+    recvfunlist = funclist[0] + funclist[1]
     print('update log...')
     update_log_fun(configdict, recvfunlist)  # 更新日志
     print('finish')
@@ -47,6 +43,6 @@ if __name__ == '__main__':
     except:
         print('An unexcepted error has occured, you can get it in historylog.txt.')
         update_log_error()  # 在日志中记录错误
-        time.sleep(10)
+        time.sleep(3)
     else:
         print('finish')
