@@ -16,6 +16,7 @@ from numpy import ceil  # 向上取整
 from numpy import exp  # 以e为底的指数函数
 from numpy import log  # 自然对数函数
 
+
 def make_gif(fig, ax1, list0, configdict):
     xfunlist, yfunlist, lenfunlist, paralistall = list0[0], list0[1], list0[2], list0[3]
     m = configdict['m']
@@ -28,7 +29,7 @@ def make_gif(fig, ax1, list0, configdict):
         def make_frame_mpl(t):
             exec(compile(paralistall, '', 'exec'))
             for m0 in range(lenfunlist):
-                m = configdict['m'] # don't change,or bugs
+                m = configdict['m']  # don't change,or bugs
                 xt = eval(xfunlist[int(fps * t * lenfunlist + m0)])
                 yt = eval(yfunlist[int(fps * t * lenfunlist + m0)])
                 datax.append(xt)
@@ -42,7 +43,8 @@ def make_gif(fig, ax1, list0, configdict):
         line = []
         for i in range(lenfunlist):
             line.append(ax1.plot(m, m * 0 - xl * 1000, color='tab:red'))
-            line[i], = ax1.plot(m, m * 0 - xl, color='tab:red')  # 不要去掉line后面的逗号,会报错
+            # 不要去掉line后面的逗号,会报错
+            line[i], = ax1.plot(m, m * 0 - xl, color='tab:red')
         NUM = 0
 
         def make_frame_mpl(t):
@@ -54,7 +56,8 @@ def make_gif(fig, ax1, list0, configdict):
                 datax.append(xt)
                 datay.append(yt)
                 line[m0].set_xdata(datax[int(fps * t * lenfunlist + m0)])
-                line[m0].set_ydata(datay[int(fps * t * lenfunlist + m0)])  # 更新曲面
+                line[m0].set_ydata(
+                    datay[int(fps * t * lenfunlist + m0)])  # 更新曲面
                 NUM = int(t * 1000)
                 plt.title(f'{NUM} ms')
             print()
@@ -64,7 +67,8 @@ def make_gif(fig, ax1, list0, configdict):
         line = []
         for i in range(lenfunlist):
             line.append(ax1.plot(m, m * 0 - xl, color='tab:red'))
-            line[i], = ax1.plot(m, m * 0 - xl, color='tab:red')  # 不要去掉line后面的逗号,会报错
+            # 不要去掉line后面的逗号,会报错
+            line[i], = ax1.plot(m, m * 0 - xl, color='tab:red')
         NUM = 0
 
         def make_frame_mpl(t):
@@ -76,7 +80,8 @@ def make_gif(fig, ax1, list0, configdict):
                 datax.append(xt)
                 datay.append(yt)
                 line[m0].set_xdata(datax[int(fps * t * lenfunlist + m0)])
-                line[m0].set_ydata(datay[int(fps * t * lenfunlist + m0)])  # 更新曲面
+                line[m0].set_ydata(
+                    datay[int(fps * t * lenfunlist + m0)])  # 更新曲面
                 NUM = int(t * 1000)
                 plt.title(f"{NUM} ms")
             print()
@@ -84,15 +89,20 @@ def make_gif(fig, ax1, list0, configdict):
     animation = mpy.VideoClip(make_frame_mpl, duration=duration)
     animation.write_gif(gifname, fps=fps)  # 将一系列图片制作成gif
 
-#定义一些numpy没有的初等函数方便输入
-def lnxy(x,y):
+# 定义一些numpy没有的初等函数方便输入
+
+
+def lnxy(x, y):
     return np.log(y)/np.log(x)
+
 
 def sec(x):
     return np.reciprocal(cos(x))
 
+
 def csc(x):
     return np.reciprocal(sin(x))
+
 
 def cot(x):
     return np.reciprocal(tan(x))

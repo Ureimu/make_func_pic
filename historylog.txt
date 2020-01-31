@@ -1,0 +1,30 @@
+{'gifname': '001.gif', 'fps': 30, 'duration': 0.628, 'logic2': 'n', 'xl': -0.5, 'xm': 0.5, 'yl': -0.5, 'ym': 0.5, 'xlfw': 0.0, 'xmfw': 6.29, 'jd': 0.001, 'm': array([0.000e+00, 1.000e-03, 2.000e-03, ..., 6.287e+00, 6.288e+00,
+       6.289e+00]), 'sizex': 6.0, 'sizey': 6.0}
+['tan(t*0.5+0.00)*cos(m)-tan(t*0.5+0.00)', 'tan(t*0.5+0.31)*cos(m)-tan(t*0.5+0.31)', 'tan(t*0.5+0.63)*cos(m)-tan(t*0.5+0.63)', 'tan(t*0.5+0.94)*cos(m)-tan(t*0.5+0.94)', 'tan(t*0.5+1.26)*cos(m)-tan(t*0.5+1.26)', 'tan(t*0.5+1.57)*cos(m)-tan(t*0.5+1.57)', 'tan(t*0.5+1.88)*cos(m)-tan(t*0.5+1.88)', 'tan(t*0.5+2.20)*cos(m)-tan(t*0.5+2.20)', 'tan(t*0.5+2.51)*cos(m)-tan(t*0.5+2.51)', 'tan(t*0.5+2.83)*cos(m)-tan(t*0.5+2.83)', 'tan(t*0.5+0.00)*sin(m)', 'tan(t*0.5+0.31)*sin(m)', 'tan(t*0.5+0.63)*sin(m)', 'tan(t*0.5+0.94)*sin(m)', 'tan(t*0.5+1.26)*sin(m)', 'tan(t*0.5+1.57)*sin(m)', 'tan(t*0.5+1.88)*sin(m)', 'tan(t*0.5+2.20)*sin(m)', 'tan(t*0.5+2.51)*sin(m)', 'tan(t*0.5+2.83)*sin(m)']
+Traceback (most recent call last):
+  File "D:\py\lib\shutil.py", line 566, in move
+    os.rename(src, real_dst)
+OSError: [WinError 123] 文件名、目录名或卷标语法不正确。: '001.gif' -> 'pic/\n001.gif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:/Documents/GitHub/make_func_pic/main.py", line 40, in <module>
+    mymovefile(configdict['gifname'], storage_path + configdict['gifname'])  # 把文件移动到根目录下的\pic\中
+  File "d:\Documents\GitHub\make_func_pic\movefile.py", line 17, in mymovefile
+    shutil.move(srcfile, dstfile)  # 移动文件
+  File "D:\py\lib\shutil.py", line 580, in move
+    copy_function(src, real_dst)
+  File "D:\py\lib\shutil.py", line 266, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "D:\py\lib\shutil.py", line 121, in copyfile
+    with open(dst, 'wb') as fdst:
+OSError: [Errno 22] Invalid argument: 'pic/\n001.gif'
+
+
+{'gifname': '001.gif', 'fps': 30, 'duration': 0.628, 'logic2': 'n', 'xl': -0.5, 'xm': 0.5, 'yl': -0.5, 'ym': 0.5, 'xlfw': 0.0, 'xmfw': 6.29, 'jd': 0.001, 'm': array([0.000e+00, 1.000e-03, 2.000e-03, ..., 6.287e+00, 6.288e+00,
+       6.289e+00]), 'sizex': 6.0, 'sizey': 6.0}
+['tan(t*0.5+0.00)*cos(m)-tan(t*0.5+0.00)', 'tan(t*0.5+0.31)*cos(m)-tan(t*0.5+0.31)', 'tan(t*0.5+0.63)*cos(m)-tan(t*0.5+0.63)', 'tan(t*0.5+0.94)*cos(m)-tan(t*0.5+0.94)', 'tan(t*0.5+1.26)*cos(m)-tan(t*0.5+1.26)', 'tan(t*0.5+1.57)*cos(m)-tan(t*0.5+1.57)', 'tan(t*0.5+1.88)*cos(m)-tan(t*0.5+1.88)', 'tan(t*0.5+2.20)*cos(m)-tan(t*0.5+2.20)', 'tan(t*0.5+2.51)*cos(m)-tan(t*0.5+2.51)', 'tan(t*0.5+2.83)*cos(m)-tan(t*0.5+2.83)', 'tan(t*0.5+0.00)*sin(m)', 'tan(t*0.5+0.31)*sin(m)', 'tan(t*0.5+0.63)*sin(m)', 'tan(t*0.5+0.94)*sin(m)', 'tan(t*0.5+1.26)*sin(m)', 'tan(t*0.5+1.57)*sin(m)', 'tan(t*0.5+1.88)*sin(m)', 'tan(t*0.5+2.20)*sin(m)', 'tan(t*0.5+2.51)*sin(m)', 'tan(t*0.5+2.83)*sin(m)']
+The progess begins at 2020-01-31 12:08:31,ends at 2020-01-31 12:08:33.
+It takes 2.3481345176696777 s to finish.
+

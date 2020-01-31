@@ -18,13 +18,16 @@ numpy,moviepy,matplotlib,...
 if __name__ == '__main__':
     try:
         print('getting preconfig...')
-        storage_path = read_preconfig()  # 设置存储路径
-    except FileNotFoundError or io.UnsupportedOperation:
+        preconfigdict = read_preconfig()
+        storage_path = preconfigdict['copy0']  # 设置存储路径
+    except FileNotFoundError or io.UnsupportedOperation or TypeError:
         print('no preconfig being detected')
-        storage_path = write_preconfig_default()
+        preconfigdict = write_preconfig_default()
+        storage_path = preconfigdict['copy0']
     configdict = gif_config()  # 对gif进行设置
     fig, ax1 = draw_fig(configdict['xl'], configdict['xm'], configdict['yl'],
-                        configdict['ym'], configdict['sizex'], configdict['sizey'])  # 生成图片基本格式
+                        configdict['ym'], configdict['sizex'], configdict['sizey'],
+                        preconfigdict['facecolor'])  # 生成图片基本格式
     funclist = getfunctions()  # 接受用户输入的函数
     recvfunlist = funclist[0] + funclist[1]
     print('update log...')
