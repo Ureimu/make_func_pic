@@ -24,3 +24,4 @@ With these two parameter and some parameter equations, you can get a pretty gif.
 
 接下来只需要按照自己的要求输入相关信息就可以制作gif了.
 
+这个程序因为一些制作gif用到的第三方库(moviepy)的bug而不能用pyinstaller进行打包(运行exe程序会报错).
