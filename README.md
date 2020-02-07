@@ -25,3 +25,5 @@ With these two parameter and some parameter equations, you can get a pretty gif.
 接下来只需要按照自己的要求输入相关信息就可以制作gif了.
 
 这个程序因为一些制作gif用到的第三方库(moviepy)的bug而不能用pyinstaller进行打包(运行exe程序会报错).
+
+如果想要在其他地方用命令行使用这个程序的话,可以把这个程序的文件夹路径添加到环境变量里,具体教程网上已经有很多了,有兴趣的可以搜搜看.
